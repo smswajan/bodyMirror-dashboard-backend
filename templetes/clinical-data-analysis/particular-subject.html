@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+
+{% block titleandlinks %}
+{% load static %}
+<title>Building Detection</title>
+<link rel="stylesheet" href="{% static 'css/mnist_app.css' %}">
+{% endblock %}
+
+{% block header %}
+<h3 p-0 m-0 class="font-weight-bold" style=" color: #333333;">
+    Clinical Data Analysis
+</h3>
+{% endblock %}
+
+{% block content %}
+<!-- something extended heare-->
+<div style="margin-top: 30px;margin-bottom: 50px; text-align: center;">
+    <h4 class="text-primary mb-5 font-weight-bold">Upload your data file</h4>
+
+    <form class="mb-4" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <select name="model" id="model" style="padding: 3px;">
+            <option value="Healthy">Healthy</option>
+            <option value="Patient">Patient</option>
+        </select>
+        <input type="file" name="document">
+        <button class="btn btn-primary" type="submit">Upload</button>
+    </form>
+   
+    <div style="margin-top: 50px">
+        {% if url %}
+        <div style="min-width: 45%; max-width: 45%; margin: 5px; display: inline-block">
+            <span style="font-size: 20px;">Input Image</span>
+            <br>
+            <img style="min-width: 100%; max-width: 100%;" src="/{{ url }}" alt="img">
+        </div>
+        <div style="min-width: 45%; max-width: 45%; margin: 5px; display: inline-block">
+            <span style="font-size: 20px;">Detected Image</span>
+            <br>
+            <img style="min-width: 100%; max-width: 100%;" src="/{{ detected_img }}" alt="img">
+        </div>
+
+        {% endif %}
+    </div>
+
+    <!-- <div style="margin-top: 120px">
+        {% if message is None %}
+        <h2>Choose building image to detect</h2>
+        {% else %}
+        <h2>{{message}}</h2>
+        {% endif %}
+    </div> -->
+</div>
+
+{% endblock %}

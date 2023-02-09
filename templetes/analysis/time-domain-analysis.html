@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+
+{% block titleandlinks %}
+<title>Myelin-H | Clinical Data Analysis</title>
+{% endblock %}
+
+{% block header %}
+<h3 p-0 m-0 class="font-weight-bold" style=" color: #333333;">
+    Time Domain Analysis
+</h3>
+{% endblock %}
+
+{% load static %}
+{% block content %}
+    <div class="px-5">
+        <h3 class="font-weight-bold text-secondary">Topographic Maps</h3>
+        <img src="{% static 'img/topographic.png' %}" alt="" class="img-fluid">
+
+        <h3 class="font-weight-bold text-secondary mt-4">Plot Particular Electrodes: MS Patients</h3>
+        <img src="{% static 'img/electrodes.png' %}" alt="" class="img-fluid">
+    </div>
+{% endblock %}

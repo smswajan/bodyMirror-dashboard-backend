@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+
+{% block titleandlinks %}
+<title>Myelin-H | Clinical Data Analysis</title>
+{% endblock %}
+
+{% block header %}
+<h3 p-0 m-0 class="font-weight-bold" style=" color: #333333;">
+    Time Domain Analysis
+</h3>
+{% endblock %}
+
+{% block content %}
+    <div class="px-5 text-center">
+        <h3 class="font-weight-bold text-primary mt-5">How do you want to run the analysis?</h3>
+        <div class="d-flex justify-content-center mt-4">
+            <a href="/clinical-data-analysis/group-subjects" class="btn btn-primary mx-4">Analysis of a group of subjects</a>
+            <a href="/clinical-data-analysis/particular-subject" class="btn btn-primary mx-4">Analysis a particular subject</a>
+        </div>
+    </div>
+{% endblock %}
